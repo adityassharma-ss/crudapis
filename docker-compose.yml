@@ -2,14 +2,14 @@ version: "3.9"
 
 services:
   node_app:
-    container_name: node_app
+    container_name: jsonapi
     build: .
-    image: aditya/node_crud
+    image: aditya/dev_assign
     ports:
       - "3000:3000"
     environment:
-      - PG_DB=node_live_db
-      - PG_USER=francesco
+      - PG_DB=json_live_db
+      - PG_USER=aditya
       - PG_PASSWORD=12345
       - PG_HOST=node_db
     depends_on:
@@ -21,7 +21,7 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=node_live_db
+      - POSTGRES_DB=json_live_db
       - POSTGRES_USER=aditya
       - POSTGRES_PASSWORD=12345
     volumes:
