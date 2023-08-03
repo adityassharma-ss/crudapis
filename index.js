@@ -2,6 +2,8 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const sequelize = require('./util/database');
 const User = require('./models/user');
+const Teacher = require('./models/teacher');
+const Course = require('./models/course');
 
 const app = express();
 
@@ -16,11 +18,13 @@ app.use((req, res, next) => {
 
 //test route
 app.get('/', (req, res, next) => {
-  res.send('Hello World');
+  res.send('mavQ DevOps Assignment');
 });
 
 //CRUD routes
 app.use('/users', require('./routes/users'));
+app.use('/teachers', require('./routes/teachers'));
+app.use('/courses', require('./routes/courses'));
 
 //error handling
 app.use((error, req, res, next) => {
