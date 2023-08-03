@@ -15,7 +15,7 @@ exports.getCourse = (req, res, next) => {
     Course.findByPk(courseId)
         .then(course => {
             if (!course) {
-                return res.status(404).json({ message: 'User not found!' });
+                return res.status(404).json({ message: 'Course not found!' });
             }
             res.status(200).json({ course: course });
         })
@@ -41,7 +41,7 @@ Course.create({
     .then(result => {
       console.log('Created User');
       res.status(201).json({
-        message: 'User created successfully!',
+        message: 'Course created successfully!',
         course: result
       });
     })
@@ -58,14 +58,14 @@ exports.updateCourse = (req, res, next) => {
   Course.findByPk(courseId)
     .then(course => {
       if (!course) {
-        return res.status(404).json({ message: 'User not found!' });
+        return res.status(404).json({ message: 'Course not found!' });
       }
       course.name = updatedName;
       course.email = updatedEmail;
       return course.save();
     })
     .then(result => {
-      res.status(200).json({message: 'User updated!', course: result});
+      res.status(200).json({message: 'Course updated!', course: result});
     })
     .catch(err => console.log(err));
 }

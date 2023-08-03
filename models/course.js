@@ -8,7 +8,7 @@ const Course = db.define('course', {
         allowNull: false,
         primaryKey: true
     },
-    course_mentor: Sequelize.STRING,
+    course_mentor: Sequelize.INTEGER,
     name: Sequelize.STRING,
     start_date: Sequelize.INTEGER,
     end_date: Sequelize.INTEGER,
